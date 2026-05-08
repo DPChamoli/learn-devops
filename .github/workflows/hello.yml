@@ -8,6 +8,7 @@ jobs:
       steps: 
         - name: say hello to users
           run: echo "Hello DPchamoli"
+        - name: say hello to username  
           run: echo "Hello $USER"
 
           
