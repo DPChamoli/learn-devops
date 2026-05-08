@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: install nginx
-        run: apt-get install nginx -y && nginx -version
+        run: sudo apt-get install nginx -y && nginx -version
 
           
     
