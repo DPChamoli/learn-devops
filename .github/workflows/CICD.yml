@@ -2,22 +2,26 @@ name: dev_cicd
 on:
   workflow_dispatch:
 jobs:
+ # every job need the seperate runner, called parallelism
   code:
     runs-on: ubuntu-latest
     steps: 
       - name: checkout code
         run: echo "Code clone from github"
   build:
+    needs: [code]
     runs-on: ubuntu-latest
     steps:
       - name: Build docker Contianer
         run: echo "Docker Container build"
   test:
+    needs: [code, build]
     runs-on: ubuntu-latest
     steps:
       - name: Test docker Contianer
         run: echo "Testing docker contianer"
   deploy:
+    needs: [build, test]
     runs-on: ubuntu-latest
     steps:
       - name: Deploy the app on Docker Container
