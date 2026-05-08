@@ -1,6 +1,27 @@
 name: dev_cicd
 on:
   workflow_dispatch:
+   inputs:
+     environment:
+       description: This is the environment value where this workflow runs
+       default: 'dev'
+       required: true
+       type: choice
+       options:
+           - dev
+           - prod
+           - staging
+            
+           
+
+# meaning- it will trigger only in main if .html has any changes.
+#on:
+#  push:
+#    branches: [main]
+#  paths:
+#     - '**.html'  #filter for file 
+#     - '**.yml' 
+
 jobs:
  # every job need the seperate runner, called parallelism
   code:
