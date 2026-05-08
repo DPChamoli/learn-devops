@@ -42,6 +42,7 @@ jobs:
       - name: Test docker Contianer
         run: echo "Testing docker contianer"
   deploy:
+    if: inputs.environment == 'dev'
     needs: [build, test]
     runs-on: ubuntu-latest
     steps:
