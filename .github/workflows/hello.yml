@@ -14,7 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: version of python, docker, etc
-        run: docker --version && python --version && git --version && nginx --version
+        run: docker --version && python --version && git --version 
+  installer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install nginx
+        run: apt-get install nginx -y && nginx -version
 
           
     
